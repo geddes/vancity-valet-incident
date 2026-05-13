@@ -9,7 +9,7 @@
 
 ## What happened
 
-On the evening of Sunday, May 11, 2026, I dropped my 2026 Tesla Model X (black) with the valet at VanCity Parking at 359 9th Avenue, New York, NY. When I returned for the car later that night, the valet on duty brought the vehicle up for pickup.
+On Monday, May 11, 2026, at approximately 10:30 AM, I dropped my 2026 Tesla Model X (black) with the valet at VanCity Parking at 359 9th Avenue, New York, NY. When I returned for the car that evening (the Tesla's dashcam timestamp on the impact recording is 21:40:50 / 9:40 PM ET), the valet on duty brought the vehicle up for pickup.
 
 While my Tesla was in the sole care, custody, and control of VanCity Parking — and while the valet was operating it — the valet placed the car in **Drive** instead of **Reverse**, slammed on the accelerator, and drove the Tesla directly into the rear of a **stationary, parked black Mercedes-Benz SUV** that was positioned immediately in front of mine. The Tesla rear-ended the Mercedes at the parking facility.
 
