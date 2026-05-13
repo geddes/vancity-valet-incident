@@ -34,7 +34,7 @@ A complete evidence package is hosted online and includes:
 - Damage photographs from the night of the incident and the following day, including the front nose, hood seams, and dislodged emblem
 - A photograph of my Tesla at the curb outside VanCity Parking immediately after the incident, with VanCity signage visible
 
-**Online evidence package:** *(URL to be added once GitHub Pages site is published)*
+**Online evidence package:** https://geddes.github.io/vancity-valet-incident/
 
 The original media files (Tesla dashcam MP4 and iPhone HEIC photographs with original EXIF metadata) are available on request and have been preserved in their original form.
 
