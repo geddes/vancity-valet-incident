@@ -181,11 +181,100 @@
     color: var(--muted); border-top: 1px solid var(--border); margin-top: 3rem;
   }
 
+  /* Estimate / cost table */
+  .estimate-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1rem;
+  }
+  .estimate-card h3 {
+    font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem;
+    text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted);
+  }
+  table.cost-table {
+    width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 0.5rem;
+  }
+  table.cost-table th, table.cost-table td {
+    text-align: left; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border);
+  }
+  table.cost-table th {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--muted); font-weight: 600; background: var(--section-bg);
+  }
+  table.cost-table td.num, table.cost-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.cost-table tr.subtotal td { font-weight: 600; border-top: 1px solid var(--border); }
+  table.cost-table tr.grand-total td {
+    font-weight: 700; font-size: 1.05rem; color: var(--accent);
+    background: var(--section-bg); border-top: 2px solid var(--accent);
+  }
+  .key-ops {
+    margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border);
+  }
+  .key-ops ul {
+    list-style: none; padding: 0; margin-top: 0.5rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.5rem 1.5rem;
+  }
+  .key-ops li {
+    padding: 0.4rem 0; border-bottom: 1px dashed var(--border);
+    font-size: 0.9rem; color: #333;
+  }
+  .key-ops li strong { color: var(--text); }
+  .pdf-link {
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.25rem;
+    background: var(--accent); color: #fff; padding: 0.6rem 1.1rem;
+    border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: background 0.15s;
+  }
+  .pdf-link:hover { background: #962d21; }
+  .pdf-link svg { width: 18px; height: 18px; }
+
+  /* Body shop photo gallery */
+  .photo-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.6rem; margin-top: 1rem;
+  }
+  .photo-grid .photo {
+    position: relative; aspect-ratio: 4 / 3; overflow: hidden;
+    border-radius: 6px; border: 1px solid var(--border); background: #000;
+  }
+  .photo-grid .photo img {
+    width: 100%; height: 100%; object-fit: cover; cursor: pointer;
+    display: block; transition: transform 0.2s;
+  }
+  .photo-grid .photo:hover img { transform: scale(1.04); }
+  .photo-grid .photo .photo-cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    color: #fff; padding: 1.5rem 0.7rem 0.55rem; font-size: 0.78rem;
+    pointer-events: none; line-height: 1.3;
+  }
+
+  .all-photos-toggle {
+    margin-top: 1.5rem; text-align: center;
+  }
+  .all-photos-toggle button {
+    background: var(--text); color: #fff; border: none;
+    padding: 0.7rem 1.5rem; border-radius: 6px; font-size: 0.92rem;
+    font-weight: 600; cursor: pointer; transition: background 0.15s;
+  }
+  .all-photos-toggle button:hover { background: #2a2a4a; }
+  #all-photos { display: none; margin-top: 1.25rem; }
+  #all-photos.shown { display: block; }
+  #all-photos .photo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.4rem;
+  }
+  #all-photos .photo-cap {
+    font-size: 0.7rem; padding: 1rem 0.5rem 0.4rem;
+  }
+
   @media (max-width: 600px) {
     .header h1 { font-size: 1.3rem; }
     .facts { grid-template-columns: 1fr; }
     .stills-grid { grid-template-columns: 1fr; }
     .damage-grid { grid-template-columns: 1fr; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    #all-photos .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .key-ops ul { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -429,6 +518,163 @@
     </div>
   </section>
 
+  <!-- REPAIR ESTIMATE -->
+  <section>
+    <h2>Repair Estimate &mdash; $8,444.53</h2>
+    <p style="color:var(--muted); margin-bottom:0.5rem;">
+      Written estimate from <strong>Peotter's Auto Body</strong> (186 Broad St., Summit, NJ 07901 &middot;
+      908&#8209;273&#8209;4000), prepared by Thomas Cecere on May 18, 2026.
+      Workfile ID f6245a79 &middot; State License 007324A&#8209;NJ &middot; Point of Impact: 12 (Front).
+      The full itemized eight&#8209;page PDF is linked below.
+    </p>
+
+    <a class="pdf-link" href="estimate.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm0 7V3.5L19.5 9H14z"/></svg>
+      View full Preliminary Estimate (PDF, 8 pages)
+    </a>
+
+    <div class="estimate-card">
+      <h3>Cost Breakdown</h3>
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th class="num">Basis</th>
+            <th class="num">Rate</th>
+            <th class="num">Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Parts</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">$2,999.10</td></tr>
+          <tr><td>Body Labor</td><td class="num">29.6 hrs</td><td class="num">$65.00/hr</td><td class="num">$1,924.00</td></tr>
+          <tr><td>Paint Labor</td><td class="num">18.3 hrs</td><td class="num">$65.00/hr</td><td class="num">$1,189.50</td></tr>
+          <tr><td>Mechanical Labor</td><td class="num">1.0 hrs</td><td class="num">$95.00/hr</td><td class="num">$95.00</td></tr>
+          <tr><td>Structural Labor</td><td class="num">4.0 hrs</td><td class="num">$75.00/hr</td><td class="num">$300.00</td></tr>
+          <tr><td>Electrical Labor</td><td class="num">6.9 hrs</td><td class="num">$80.00/hr</td><td class="num">$552.00</td></tr>
+          <tr><td>Paint Supplies</td><td class="num">18.3 hrs</td><td class="num">$42.00/hr</td><td class="num">$768.60</td></tr>
+          <tr><td>Body Supplies</td><td class="num">17.4 hrs</td><td class="num">$5.00/hr</td><td class="num">$87.00</td></tr>
+          <tr><td>Miscellaneous</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">$4.95</td></tr>
+          <tr class="subtotal"><td>Subtotal</td><td class="num"></td><td class="num"></td><td class="num">$7,920.15</td></tr>
+          <tr><td>Sales Tax</td><td class="num">$7,915.20</td><td class="num">6.625%</td><td class="num">$524.38</td></tr>
+          <tr class="grand-total"><td>Grand Total</td><td class="num"></td><td class="num"></td><td class="num">$8,444.53</td></tr>
+        </tbody>
+      </table>
+
+      <div class="key-ops">
+        <h3>Key Repair Operations</h3>
+        <p style="font-size:0.9rem; color:var(--muted); margin-bottom:0.5rem;">
+          Selected line items from the estimate (see PDF for the complete 114&#8209;line list).
+        </p>
+        <ul>
+          <li><strong>Hood:</strong> replace (aluminum, paint to match) &mdash; $1,907.00 part + body/paint labor</li>
+          <li><strong>LT &amp; RT hood hinges:</strong> replace, paint, blend</li>
+          <li><strong>Hood latch &amp; striker:</strong> replace</li>
+          <li><strong>Front bumper cover:</strong> repair + refinish (3.0 hrs body, 3.0 hrs paint)</li>
+          <li><strong>Upper grille &amp; Tesla emblem:</strong> replace</li>
+          <li><strong>LT &amp; RT repeater lamps:</strong> replace (one&#8209;time&#8209;use parts)</li>
+          <li><strong>LT &amp; RT fenders:</strong> R&amp;I + blend paint to match (aluminum)</li>
+          <li><strong>LT &amp; RT windshield outer pillars (A&#8209;pillars, aluminum):</strong> structural repair</li>
+          <li><strong>High&#8209;voltage system:</strong> deactivate / activate (Tesla&#8209;mandated procedure)</li>
+          <li><strong>Tesla Toolbox electrical diagnostics:</strong> clear DTC, service mode, hard reset, firmware redeploy, charge&#8209;port proxy test</li>
+          <li><strong>Side&#8209;camera calibration:</strong> Tesla Autopilot recalibration + road test</li>
+          <li><strong>Windshield:</strong> rope&#8209;mask repair (during pillar/hood work)</li>
+          <li><strong>Refinish:</strong> color sand &amp; buff, color match, blend clear, adjacent panel blending</li>
+          <li><strong>Information labels:</strong> replace emissions &amp; battery&#8209;chemistry labels</li>
+        </ul>
+        <p style="font-size:0.85rem; color:var(--muted); margin-top:0.75rem;">
+          Note from the estimator: <em>"This is a preliminary estimate &hellip; additional damage may be
+          found upon tear&#8209;down."</em> Final repair cost may increase if hidden damage is identified
+          during disassembly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY SHOP INSPECTION PHOTOS -->
+  <section>
+    <h2>Body Shop Inspection Photos</h2>
+    <p style="color:var(--muted); margin-bottom:0.5rem;">
+      A selection of the clearest damage photos from Peotter's Auto Body's inspection
+      (May 18, 2026). The grid below highlights the most diagnostic shots &mdash; hood
+      deformation, dislodged emblem, A&#8209;pillar seam misalignment, and dent&#8209;viewer
+      inspection panels showing the impact dents on the hood and lower fascia.
+      Click any photo to view full size. The complete set of 52 photos is available
+      below the curated highlights.
+    </p>
+
+    <div class="photo-grid">
+      <div class="photo">
+        <img src="photos/Photo 13.jpg" loading="lazy" alt="Front of Tesla showing hood deformation" onclick="openLightbox(this)">
+        <div class="photo-cap">Front view &mdash; hood ripple and deformation visible across the center of the hood</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 17.jpg" loading="lazy" alt="Tesla emblem dislodged" onclick="openLightbox(this)">
+        <div class="photo-cap">Tesla front emblem dislodged from grille; mounting clip broken on impact</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 26.jpg" loading="lazy" alt="Hood ripple from side angle" onclick="openLightbox(this)">
+        <div class="photo-cap">Hood damage from side angle &mdash; surface waviness from impact load</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 25.jpg" loading="lazy" alt="Hand on hood showing dent waveform" onclick="openLightbox(this)">
+        <div class="photo-cap">Hand for scale &mdash; deformation across the leading edge of the hood</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 21.jpg" loading="lazy" alt="Hood underside" onclick="openLightbox(this)">
+        <div class="photo-cap">Underside of hood &mdash; structural deformation visible from below</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 29.jpg" loading="lazy" alt="Lower bumper paint scuff" onclick="openLightbox(this)">
+        <div class="photo-cap">Lower bumper &mdash; paint scuff and transfer near the point of contact</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 33.jpg" loading="lazy" alt="Hood paint surface close-up" onclick="openLightbox(this)">
+        <div class="photo-cap">Hood paint surface &mdash; texture / clear&#8209;coat disturbance at impact zone</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 38.jpg" loading="lazy" alt="A-pillar seam misalignment" onclick="openLightbox(this)">
+        <div class="photo-cap">A&#8209;pillar seam &mdash; misalignment at the junction with the windshield (per estimate, both A&#8209;pillars repaired)</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 39.jpg" loading="lazy" alt="A-pillar and windshield overview" onclick="openLightbox(this)">
+        <div class="photo-cap">A&#8209;pillar / windshield overview &mdash; structural repair scope of the estimate</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 47.jpg" loading="lazy" alt="Dent viewer panel showing hood dents" onclick="openLightbox(this)">
+        <div class="photo-cap">Dent&#8209;viewer reflection on hood &mdash; grid distortion exposes multiple impact dents (1)</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 48.jpg" loading="lazy" alt="Dent viewer angle 2" onclick="openLightbox(this)">
+        <div class="photo-cap">Dent&#8209;viewer reflection on hood &mdash; multiple impact dents visible (2)</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 50.jpg" loading="lazy" alt="Dent viewer on lower fascia" onclick="openLightbox(this)">
+        <div class="photo-cap">Dent&#8209;viewer reflection on lower front fascia / nose</div>
+      </div>
+      <div class="photo">
+        <img src="photos/Photo 55.jpg" loading="lazy" alt="Dent viewer lower nose" onclick="openLightbox(this)">
+        <div class="photo-cap">Dent&#8209;viewer reflection &mdash; lower nose / front fascia impact dents</div>
+      </div>
+      <div class="photo">
+        <img src="photos/MMae3e0d9fa041d0598d734b3028d0a880-0.jpg" loading="lazy" alt="Emblem close-up" onclick="openLightbox(this)">
+        <div class="photo-cap">Tesla T&#8209;emblem close&#8209;up &mdash; visibly dislodged and rotated from its mount</div>
+      </div>
+    </div>
+
+    <div class="all-photos-toggle">
+      <button id="toggle-all-photos" onclick="togglePhotos()">Show all 52 inspection photos &darr;</button>
+    </div>
+
+    <div id="all-photos">
+      <p style="color:var(--muted); margin-bottom:0.5rem; font-size:0.9rem;">
+        Complete set of inspection photos provided by Peotter's Auto Body. Click any photo to enlarge.
+      </p>
+      <div class="photo-grid" id="all-photos-grid">
+        <!-- All photo thumbnails inserted by script below -->
+      </div>
+    </div>
+  </section>
+
   <!-- LIABILITY -->
   <section>
     <h2>Liability</h2>
@@ -462,20 +708,28 @@
     <div class="narrative">
       <p>
         I request that VanCity Parking accept liability for this incident and pay for the full cost
-        of repair of the damage to my 2026 Tesla Model X, including but not limited to:
+        of repair of the damage to my 2026 Tesla Model X. A written preliminary estimate has been
+        obtained from Peotter's Auto Body (Summit, NJ):
       </p>
-      <ul style="padding-left:1.25rem; margin-top:0.5rem; display:flex; flex-direction:column; gap:0.25rem;">
-        <li>Hood repair or replacement and refinish</li>
-        <li>Front fascia / nose paint and scratch repair</li>
-        <li>Tesla emblem reattachment or replacement (mounting clip broken)</li>
-        <li>Any associated panel realignment, paint blend, and Tesla service work identified by the
-        repair facility</li>
-        <li>Reasonable rental vehicle costs for the period the Tesla is in the shop</li>
-      </ul>
+      <p style="margin-top:0.75rem; font-size:1.25rem; font-weight:700; color:var(--accent);">
+        Preliminary repair estimate: $8,444.53
+      </p>
+      <p style="margin-top:0.5rem; font-size:0.9rem; color:var(--muted);">
+        (See <a href="estimate.pdf" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600;">full PDF estimate</a> &mdash;
+        the figure includes parts, body / paint / mechanical / structural / electrical labor,
+        supplies, and 6.625% sales tax. The estimator notes that <em>additional damage may be found
+        upon tear&#8209;down</em>, which could increase the final amount.)
+      </p>
       <p style="margin-top:0.75rem;">
-        I will obtain a written repair estimate from a Tesla-approved body shop and provide it as
-        soon as it is available. I am happy to coordinate directly with VanCity Parking's insurer
-        on this matter.
+        The scope of repair includes, but is not limited to: hood replacement, both A&#8209;pillar
+        structural repairs, front bumper repair and refinish, both front fenders blend&#8209;painted,
+        Tesla emblem and upper grille replacement, both repeater lamps replaced, Tesla high&#8209;voltage
+        system deactivate/activate procedure, Tesla Toolbox electrical diagnostics, and
+        side&#8209;camera Autopilot recalibration.
+      </p>
+      <p style="margin-top:0.75rem;">
+        I also request reasonable rental vehicle costs for the period the Tesla is in the shop.
+        I am happy to coordinate directly with VanCity Parking's insurer on this matter.
       </p>
     </div>
   </section>
@@ -589,6 +843,94 @@ document.querySelectorAll('.video-wrap').forEach(function(wrap) {
     else if (wrap.webkitRequestFullscreen) { wrap.webkitRequestFullscreen(); }
   });
 });
+
+/* All-photos gallery: populate every inspection photo from the body shop */
+var ALL_PHOTOS = [
+  { src: 'photos/MMae3e0d9fa041d0598d734b3028d0a880-0.jpg', cap: 'Emblem close-up' },
+  { src: 'photos/MMae3e0d9fa041d0598d734b3028d0a880-1.jpg', cap: 'Front lower bumper scuff' },
+  { src: 'photos/MMae3e0d9fa041d0598d734b3028d0a880-2.jpg', cap: 'Lower bumper reflection' },
+  { src: 'photos/Photo 05.jpg', cap: 'Interior — driver door open, sill view' },
+  { src: 'photos/Photo 06.jpg', cap: 'Vehicle infotainment / VIN screen' },
+  { src: 'photos/Photo 07.jpg', cap: 'Rear license plate U235WC' },
+  { src: 'photos/Photo 08.jpg', cap: 'Rear quarter view' },
+  { src: 'photos/Photo 09.jpg', cap: 'Side / rear view at shop' },
+  { src: 'photos/Photo 10.jpg', cap: 'Front 3/4 — overall front view' },
+  { src: 'photos/Photo 11.jpg', cap: 'Front straight on — hood deformation visible' },
+  { src: 'photos/Photo 12.jpg', cap: 'Front 3/4 — hood deformation' },
+  { src: 'photos/Photo 13.jpg', cap: 'Front straight on — hood ripple across center' },
+  { src: 'photos/Photo 14.jpg', cap: 'Front 3/4 left' },
+  { src: 'photos/Photo 15.jpg', cap: 'Front 3/4 — alternate angle' },
+  { src: 'photos/Photo 16.jpg', cap: 'Front zoomed — hood and emblem area' },
+  { src: 'photos/Photo 17.jpg', cap: 'Tesla emblem dislodged from grille' },
+  { src: 'photos/Photo 18.jpg', cap: 'Lower bumper paint scuff close-up' },
+  { src: 'photos/Photo 19.jpg', cap: 'Front close — hood and grille' },
+  { src: 'photos/Photo 20.jpg', cap: 'Front close — alternate' },
+  { src: 'photos/Photo 21.jpg', cap: 'Hood underside / inner deformation' },
+  { src: 'photos/Photo 22.jpg', cap: 'Hood underside view' },
+  { src: 'photos/Photo 23.jpg', cap: 'Hand on hood' },
+  { src: 'photos/Photo 24.jpg', cap: 'Hand on hood — alternate' },
+  { src: 'photos/Photo 25.jpg', cap: 'Hand on hood — dent waveform visible' },
+  { src: 'photos/Photo 26.jpg', cap: 'Hood ripple from side angle' },
+  { src: 'photos/Photo 29.jpg', cap: 'Lower bumper paint scuff / transfer' },
+  { src: 'photos/Photo 30.jpg', cap: 'Front view at shop' },
+  { src: 'photos/Photo 31.jpg', cap: 'Lower bumper close-up' },
+  { src: 'photos/Photo 32.jpg', cap: 'Front fender / wheel area' },
+  { src: 'photos/Photo 33.jpg', cap: 'Hood paint surface — texture change' },
+  { src: 'photos/Photo 34.jpg', cap: 'Front fender / lower side' },
+  { src: 'photos/Photo 35.jpg', cap: 'Side body / window line' },
+  { src: 'photos/Photo 36.jpg', cap: 'A-pillar / window glass close-up' },
+  { src: 'photos/Photo 37.jpg', cap: 'A-pillar / interior reflection' },
+  { src: 'photos/Photo 38.jpg', cap: 'A-pillar seam misalignment (finger pointing)' },
+  { src: 'photos/Photo 39.jpg', cap: 'A-pillar / windshield overview' },
+  { src: 'photos/Photo 40.jpg', cap: 'A-pillar / glass seam detail' },
+  { src: 'photos/Photo 41.jpg', cap: 'A-pillar / windshield seam detail' },
+  { src: 'photos/Photo 42.jpg', cap: 'Side / window panel' },
+  { src: 'photos/Photo 43.jpg', cap: 'A-pillar seam alternate angle' },
+  { src: 'photos/Photo 44.jpg', cap: 'Front wheel / fender view' },
+  { src: 'photos/Photo 45.jpg', cap: 'Interior — passenger door open' },
+  { src: 'photos/Photo 46.jpg', cap: 'A-pillar interior / dash view' },
+  { src: 'photos/Photo 47.jpg', cap: 'Dent viewer on hood (1)' },
+  { src: 'photos/Photo 48.jpg', cap: 'Dent viewer on hood (2)' },
+  { src: 'photos/Photo 49.jpg', cap: 'Dent viewer on hood (3)' },
+  { src: 'photos/Photo 50.jpg', cap: 'Dent viewer on lower front fascia' },
+  { src: 'photos/Photo 51.jpg', cap: 'Dent viewer on lower fascia / nose' },
+  { src: 'photos/Photo 52.jpg', cap: 'Dent viewer on nose' },
+  { src: 'photos/Photo 53.jpg', cap: 'Dent viewer on lower bumper' },
+  { src: 'photos/Photo 54.jpg', cap: 'Dent viewer alternate' },
+  { src: 'photos/Photo 55.jpg', cap: 'Dent viewer lower nose' }
+];
+
+(function() {
+  var grid = document.getElementById('all-photos-grid');
+  if (!grid) return;
+  ALL_PHOTOS.forEach(function(p) {
+    var div = document.createElement('div');
+    div.className = 'photo';
+    var img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = p.src;
+    img.alt = p.cap;
+    img.onclick = function() { openLightbox(this); };
+    var cap = document.createElement('div');
+    cap.className = 'photo-cap';
+    cap.textContent = p.cap;
+    div.appendChild(img);
+    div.appendChild(cap);
+    grid.appendChild(div);
+  });
+})();
+
+function togglePhotos() {
+  var sec = document.getElementById('all-photos');
+  var btn = document.getElementById('toggle-all-photos');
+  if (sec.classList.contains('shown')) {
+    sec.classList.remove('shown');
+    btn.innerHTML = 'Show all 52 inspection photos &darr;';
+  } else {
+    sec.classList.add('shown');
+    btn.innerHTML = 'Hide all 52 inspection photos &uarr;';
+  }
+}
 </script>
 
 </body>
